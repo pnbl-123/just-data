@@ -1,7 +1,10 @@
+import { auth } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function HomePage() {
   const { userId } : { userId: string | null } = auth();
+  console.log('userId==', userId);
+  
   const href = userId ? '/tools' : '/sign-in';
 
   return (
